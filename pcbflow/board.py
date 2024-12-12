@@ -575,8 +575,8 @@ class Board:
                         note = p.footprint
                         if len(p.mfr) > 0:
                             note += "-" + p.mfr
-                        if len(p.val) > 0:
-                            note += "-" + p.val
+                        if len(str(p.val)) > 0:
+                            note += "-" + str(p.val)
                         cs.writerow(
                             [p.id, flt(x), flt(y), str(int(c.dir)), p.side, note]
                         )
@@ -593,7 +593,7 @@ class Board:
                         vendor_c = p.source[vendor]
                     else:
                         (vendor, vendor_c) = ("", "")
-                    attr = (rank.index(f), p.mfr + p.val, p.footprint, vendor, vendor_c)
+                    attr = (rank.index(f), p.mfr + str(p.val), p.footprint, vendor, vendor_c)
                     parts[attr].append(p.id)
 
         with open(fn + "-bom.csv", "wt") as f:
