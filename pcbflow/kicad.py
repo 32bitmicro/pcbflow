@@ -12,12 +12,19 @@ import shapely.ops as so
 from .sexp_parser import *
 from pcbflow import *
 
+# in kicad v8 the layers are named with ""
 KI_LAYER_DICT = {
     "F.SilkS": "GTO",
     "F.Paste": "GTP",
     "F.Mask": "GTS",
     "F.Cu": "GTL",
     "F.Fab": "GTD",
+    '"F.SilkS"': "GTO",
+    '"F.Paste"': "GTP",
+    '"F.Mask"': "GTS",
+    '"F.Cu"': "GTL",
+    '"F.Fab"': "GTD",
+
 }
 
 FP_LIB_PATH = None
